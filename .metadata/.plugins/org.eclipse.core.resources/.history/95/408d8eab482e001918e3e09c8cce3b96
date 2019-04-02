@@ -1,0 +1,13 @@
+#include "stm32f1xx.h"
+
+int main(void){
+
+	RCC->APB2ENR |= (1U << 4);
+	GPIOC->CRH |= (0x01U << 20);
+	GPIOC->CRH |= (0x00U << 22);
+	GPIOC->ODR |= (1U << 13);
+	GPIOC->ODR |= (0 << 13);
+	while(1){
+
+	}
+}

@@ -1,0 +1,22 @@
+src/main.o: ../src/main.c \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Include/core_cm3.h \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Include/core_cmInstr.h \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Include/cmsis_gcc.h \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Include/core_cmFunc.h \
+ F:/Workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Include/core_cm3.h:
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Include/core_cmInstr.h:
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Include/cmsis_gcc.h:
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Include/core_cmFunc.h:
+
+F:/Workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h:

@@ -1,0 +1,110 @@
+21:26:09 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+Building file: ../startup/startup_stm32.s
+Building file: ../src/main.c
+Building file: ../startup/sysmem.c
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Assembler
+Invoking: MCU GCC Compiler
+/home/lukasz/workspace/stm32/bare_metal1/Debug
+/home/lukasz/workspace/stm32/bare_metal1/Debug
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -DSTM32 -DSTM32F103xB -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -I"/home/lukasz/workspace/stm32/bare_metal1/CMSIS/Include" -I"/home/lukasz/workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+arm-none-eabi-as -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -g -o "startup/startup_stm32.o" "../startup/startup_stm32.s"
+/home/lukasz/workspace/stm32/bare_metal1/Debug
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -DSTM32 -DSTM32F103xB -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -I"/home/lukasz/workspace/stm32/bare_metal1/CMSIS/Include" -I"/home/lukasz/workspace/stm32/bare_metal1/CMSIS/Device/ST/STM32F1xx/Include" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"startup/sysmem.d" -MT"startup/sysmem.o" -o "startup/sysmem.o" "../startup/sysmem.c"
+Finished building: ../startup/startup_stm32.s
+ 
+../src/main.c: In function 'main':
+../src/main.c:21:23: warning: result of '17 << 30' requires 36 bits to represent, but 'int' only has 32 bits [-Wshift-overflow=]
+  GPIOC->CRH &= ~(0x11 << 30);
+                       ^~
+../src/main.c:33:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  GPIOC_ODR = 0x40011000 + 0x0C;
+            ^
+../src/main.c:8:11: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+  uint32_t a;
+           ^
+Finished building: ../startup/sysmem.c
+ 
+Finished building: ../src/main.c
+ 
+Building target: bare_metal1.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -specs=rdimon.specs -lc -lrdimon -T"/home/lukasz/workspace/stm32/bare_metal1/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "bare_metal1.elf" @"objects.list"   -lm
+Finished building target: bare_metal1.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "bare_metal1.elf" "bare_metal1.bin"
+arm-none-eabi-size "bare_metal1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   1032	   1080	   1092	   3204	    c84	bare_metal1.elf
+ 
+21:29:53 **** Erasing chip ... ****
+/home/lukasz/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.openocd.linux64_1.22.0.201902141520/tools/openocd/bin/openocd -f stm32.flash.4128149416279496232.cfg -s /home/lukasz/workspace/stm32/bare_metal1 -s /home/lukasz/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.debug_2.4.0.201902141520/resources/openocd/st_scripts "-c init" "-c reset halt" "-c flash erase_sector 0 0 last" "-c exit" 
+Open On-Chip Debugger 0.10.0-dev-00019-g5352c55 (2019-02-14-15:31)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : Could not determine executable path, using configured BINDIR.
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter speed: 8000 kHz
+adapter_nsrst_delay: 100
+Info : clock speed 8000 kHz
+Info : STLINK v2 JTAG v32 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : vid/pid are not identical: 0x0483/0x374B 0x0483/0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.242604
+Info : Unable to match requested speed 8000 kHz, using 4000 kHz
+Info : Stlink adapter speed set to 4000 kHz
+Info : STM32F103C8Tx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Error: timed out while waiting for target halted
+TARGET: STM32F103C8Tx.cpu - Not halted
+in procedure 'reset' 
+in procedure 'ocd_bouncer'
+
+
+21:30:17 **** Programming project bare_metal1 on chip ****
+/home/lukasz/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.openocd.linux64_1.22.0.201902141520/tools/openocd/bin/openocd -f stm32.flash.1709536608459024471.cfg -s /home/lukasz/workspace/stm32/bare_metal1 -s /home/lukasz/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.debug_2.4.0.201902141520/resources/openocd/st_scripts -c "program Debug/bare_metal1.elf verify reset exit" 
+Open On-Chip Debugger 0.10.0-dev-00019-g5352c55 (2019-02-14-15:31)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : Could not determine executable path, using configured BINDIR.
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter speed: 8000 kHz
+adapter_nsrst_delay: 100
+Info : clock speed 8000 kHz
+Info : STLINK v2 JTAG v32 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : vid/pid are not identical: 0x0483/0x374B 0x0483/0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.239448
+Info : Unable to match requested speed 8000 kHz, using 4000 kHz
+Info : Stlink adapter speed set to 4000 kHz
+Info : STM32F103C8Tx.cpu: hardware has 6 breakpoints, 4 watchpoints
+Error: timed out while waiting for target halted
+TARGET: STM32F103C8Tx.cpu - Not halted
+in procedure 'program' 
+in procedure 'reset' called at file "embedded:startup.tcl", line 490
+in procedure 'ocd_bouncer'
+
+** Unable to reset target **
+shutdown command invoked
+
+21:31:11 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+21:31:30 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+21:31:47 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+21:32:13 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+21:33:31 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+make: Nothing to be done for 'all'.

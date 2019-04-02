@@ -1,0 +1,12 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 10, 2019
+ *      Author: Lukasz
+ */
+
+int main(void){
+	while(1){
+
+	}
+}

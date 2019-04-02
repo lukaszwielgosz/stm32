@@ -1,0 +1,6 @@
+21:33:31 **** Incremental Build of configuration Debug for project bare_metal1 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+
+21:33:32 Build Finished (took 368ms)
+
